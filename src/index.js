@@ -9,25 +9,25 @@ import VideoDetail from './components/video_detail';
 const API_KEY = 'AIzaSyAlYT-szIdjwKLGNEB3BnYEdvxnQMoK--g';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = { videos: [] };
+    this.state = { videos: [] };
 
-        YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
-            this.setState({ videos});
-        });
-    }
+    YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
+      this.setState({ videos});
+    });
+  }
 
-    render() {
-        return (
-          <div>
-            <SearchBar />
-            <VideoDetail video={this.state.videos[0]} />
-            <VideoList videos={this.state.videos} />
-          </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <SearchBar />
+        <VideoDetail video={this.state.videos[0]} />
+        <VideoList videos={this.state.videos} />
+      </div>
+    );
+  }
 }
 
 ReactDOM.render(<App />, document.querySelector('.container'));
